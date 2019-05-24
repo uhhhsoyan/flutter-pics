@@ -1,19 +1,24 @@
-// import flutter helper library
 import 'package:flutter/material.dart';
 
-// create a class that will be our custom widget
-// class must extend the 'StatelessWidget' base class
+class App extends StatefulWidget {
+  createState() {
+    return AppState();
+  }
+}
 
-class App extends StatelessWidget {
+class AppState extends State<App> {
+  int counter = 0;
 
-  // must define a build method that returns the widgets this widget will show
   Widget build(context) {
     return MaterialApp(
       home: Scaffold(
+        body: Text('$counter'),
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
           onPressed: () {
-            print('Hi there!');
+            setState(() {
+              counter += 1;
+            });
           },
         ),
         appBar: AppBar(
